@@ -21,7 +21,7 @@ public class Sortation {
     public static void ChooseSortMethod(int [] numbers) throws IOException{
         String answer = "";
         System.out.println("Choose sort method: Selection (s), Bubble(b), Insertion(i), or Quit(q): ");
-        answer = obj.readLine();
+        answer = obj.readLine().toLowerCase();
 
         //start Bubble
         if (answer.equals("b"))
@@ -40,7 +40,11 @@ public class Sortation {
         {
             Insertion insertion = new Insertion();
             insertion.InsertionSort(numbers);
-        }//end Insertions
+        }
+        if (answer.equals("q"))
+        {
+            System.exit(0);
+        }
     }
 
     public static void displayResult(int[] numbers) throws IOException{
