@@ -8,40 +8,39 @@ public class Sortation {
     public static BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
 
     public static  void main(String args[])throws IOException{
-        ChooseSortMethod();
+        runSort();
     }
 
-    public static void ChooseSortMethod() throws IOException{
+    public static void runSort()throws IOException{
+        int[] numbers = createArray();
+        ChooseSortMethod(numbers);
+        displayResult(numbers);
+        runSort();
+    }
 
+    public static void ChooseSortMethod(int [] numbers) throws IOException{
         String answer = "";
-        System.out.println("Hello Friends: Choose One: Selection (s), Bubble(b), Insertion(i), or Quit(q): ");
+        System.out.println("Choose sort method: Selection (s), Bubble(b), Insertion(i), or Quit(q): ");
         answer = obj.readLine();
 
-        int[] numbers = createArray();
-
-        //region Bubble
+        //start Bubble
         if (answer.equals("b"))
         {
             Bubble bubble = new Bubble();
             bubble.BubbleSort(numbers);
-        }//end bubble
-
-        //region Selection
+        }
+        //start Selection
         if (answer.equals("s"))
         {
             Selection selection = new Selection();
             selection.SelectionSort(numbers);
-        }//end Selection
-
-        //region Insertions
+        }
+        //start Insertions
         if (answer.equals("i"))
         {
             Insertion insertion = new Insertion();
             insertion.InsertionSort(numbers);
         }//end Insertions
-
-        displayResult(numbers);
-        ChooseSortMethod();
     }
 
     public static void displayResult(int[] numbers) throws IOException{

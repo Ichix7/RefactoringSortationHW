@@ -13,6 +13,6 @@ public class Bubble {
                 }
             }
         }
-        return null;
+        return numbers;
     }
 }
